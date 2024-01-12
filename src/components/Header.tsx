@@ -1,14 +1,13 @@
-import { type FC, type PropsWithChildren } from "react";
+import { useTimersContext } from "../store/timers-context";
+import Button from "./ui/Button";
 
-type HeaderProps = PropsWithChildren<{ image: { src: string; alt: string } }>;
+export default function Header() {
+  const timersCtx = useTimersContext();
 
-const Header: FC<HeaderProps> = ({ image, children }) => {
   return (
     <header>
-      <img src={image.src} alt={image.alt} />
-      {children}
+      <h1>ReactTimer</h1>
+      <Button>{timersCtx.isRunning ? "Stop" : "Start"} Timers</Button>
     </header>
   );
-};
-
-export default Header;
+}
