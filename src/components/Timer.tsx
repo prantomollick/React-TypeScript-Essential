@@ -1,9 +1,15 @@
+import type { Timer } from "../store/timers-context";
 import Container from "./ui/Container";
 
-export default function Timer() {
+type TimerProps = Timer;
+
+function Timer({ name, duration }: TimerProps) {
   return (
     <Container as="article">
-      <h2>TODO: TIMER NAME</h2>
+      <h2>{name}</h2>
+      <p>{duration}</p>
     </Container>
   );
 }
+
+export default Timer;
