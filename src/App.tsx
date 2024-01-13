@@ -1,18 +1,5 @@
-import AddTimer from "./components/AddTimer";
-import Header from "./components/Header";
-import Timers from "./components/Timers";
-import TimersContextProvider from "./store/timers-context";
-
 function App() {
-  return (
-    <TimersContextProvider>
-      <Header />
-      <main>
-        <AddTimer />
-        <Timers />
-      </main>
-    </TimersContextProvider>
-  );
+  return <h1>Data Fetching...</h1>;
 }
 
 export default App;
