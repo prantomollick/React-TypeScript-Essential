@@ -11,7 +11,7 @@ type UpcomingSessionProps = {
   onCancel: () => void;
 };
 
-function UpcomingSession({ session, onCancle }: UpcomingSessionProps) {
+function UpcomingSession({ session, onCancel }: UpcomingSessionProps) {
   return (
     <article className="upcoming-session">
       <div>
@@ -26,7 +26,7 @@ function UpcomingSession({ session, onCancle }: UpcomingSessionProps) {
         </time>
       </div>
       <p className="actions">
-        <Button textOnly onClick={onCancle}>
+        <Button textOnly onClick={onCancel}>
           Cancel
         </Button>
       </p>

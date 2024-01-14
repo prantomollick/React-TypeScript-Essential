@@ -2,7 +2,10 @@ import { FormEvent, useEffect, useRef } from "react";
 import Modal, { ModalHandle } from "../ui/Modal";
 import Input from "../ui/Input";
 import Button from "../ui/Button";
-import type { Session } from "../../../store/sessions-context";
+import {
+  useSessionsContext,
+  type Session
+} from "../../../store/sessions-context";
 
 type BookSessionProps = {
   session: Session;
@@ -11,6 +14,7 @@ type BookSessionProps = {
 
 function BookSession({ session, onDone }: BookSessionProps) {
   const modal = useRef<ModalHandle>(null);
+  const sessionsCtx = useSessionsContext();
 
   // useEffect is used to open the Modal via its exposed `open` method when the component is mounted
   useEffect(() => {
@@ -26,7 +30,7 @@ function BookSession({ session, onDone }: BookSessionProps) {
     const data = Object.fromEntries(fromData);
 
     console.log(data);
-
+    sessionsCtx.bookSession(session);
     onDone();
   };
 
