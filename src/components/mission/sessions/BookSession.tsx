@@ -2,12 +2,14 @@ import { FormEvent, useEffect, useRef } from "react";
 import Modal, { ModalHandle } from "../ui/Modal";
 import Input from "../ui/Input";
 import Button from "../ui/Button";
+import type { Session } from "../../../store/sessions-context";
 
 type BookSessionProps = {
+  session: Session;
   onDone: () => void; //onDone will "tell" the parent component that the BookSession component should be removed from the DOM
 };
 
-function BookSession({ onDone }: BookSessionProps) {
+function BookSession({ session, onDone }: BookSessionProps) {
   const modal = useRef<ModalHandle>(null);
 
   // useEffect is used to open the Modal via its exposed `open` method when the component is mounted

@@ -1,7 +1,10 @@
 import { NavLink } from "react-router-dom";
 import Button from "../ui/Button";
+import { useState } from "react";
 
 const MainHeader = () => {
+  const [upcomingSessionVisible, setUpcomingSessionVisible] = useState(false);
+
   return (
     <div id="main-header">
       <h1>ReactMentoring</h1>
