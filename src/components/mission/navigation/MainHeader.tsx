@@ -2,11 +2,6 @@ import { NavLink } from "react-router-dom";
 import Button from "../ui/Button";
 
 const MainHeader = () => {
-  const navLinks = [
-    { label: "Our Mission", to: "/missions" },
-    { label: "Our Mission", to: "/sessions" }
-  ];
-
   return (
     <div id="main-header">
       <h1>ReactMentoring</h1>
