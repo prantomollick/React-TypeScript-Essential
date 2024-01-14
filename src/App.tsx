@@ -1,23 +1,27 @@
-import { Provider } from "react-redux";
-import Header from "./components/shop/Header.tsx";
-import Product from "./components/shop/Product.tsx";
-import Shop from "./components/shop/Shop.tsx";
-import { DUMMY_PRODUCTS } from "./dummy-products.ts";
-import { store } from "./store/store.ts";
+import { RouterProvider, createBrowserRouter } from "react-router-dom";
+
+import HomePage from "./pages/Home.tsx";
+import SessionsPage from "./pages/Sessions.tsx";
+import SessionPage from "./pages/Session.tsx";
+import Root from "./pages/Root.tsx";
+
+const Router = createBrowserRouter([
+  {
+    path: "/",
+    element: <Root />,
+    children: [
+      {
+        index: true,
+        element: <HomePage />
+      },
+      { path: "sessions", element: <SessionsPage /> },
+      { path: "sessions/:id", element: <SessionPage /> }
+    ]
+  }
+]);
 
 function App() {
-  return (
-    <Provider store={store}>
-      <Header />
-      <Shop>
-        {DUMMY_PRODUCTS.map((product) => (
-          <li key={product.id}>
-            <Product {...product} />
-          </li>
-        ))}
-      </Shop>
-    </Provider>
-  );
+  return <RouterProvider router={Router} />;
 }
 
 export default App;
