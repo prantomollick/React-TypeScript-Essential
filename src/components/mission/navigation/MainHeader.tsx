@@ -5,35 +5,45 @@ import { useState } from "react";
 const MainHeader = () => {
   const [upcomingSessionVisible, setUpcomingSessionVisible] = useState(false);
 
+  const showUpcomingSessions = () => {
+    setUpcomingSessionVisible(true);
+  };
+
+  const hideUpcomingSessions = () => {
+    setUpcomingSessionVisible(false);
+  };
+
   return (
-    <div id="main-header">
-      <h1>ReactMentoring</h1>
-      <nav>
-        <ul>
-          <li>
-            <NavLink
-              to="/"
-              className={({ isActive }) => (isActive ? "active" : "")}
-              end
-            >
-              Our Mission
-            </NavLink>
-          </li>
-          <li>
-            <NavLink
-              to="/sessions"
-              className={({ isActive }) => (isActive ? "active" : "")}
-              end
-            >
-              Browse Sessions
-            </NavLink>
-          </li>
-          <li>
-            <Button>Upcomming Sessions</Button>
-          </li>
-        </ul>
-      </nav>
-    </div>
+    <>
+      <div id="main-header">
+        <h1>ReactMentoring</h1>
+        <nav>
+          <ul>
+            <li>
+              <NavLink
+                to="/"
+                className={({ isActive }) => (isActive ? "active" : "")}
+                end
+              >
+                Our Mission
+              </NavLink>
+            </li>
+            <li>
+              <NavLink
+                to="/sessions"
+                className={({ isActive }) => (isActive ? "active" : "")}
+                end
+              >
+                Browse Sessions
+              </NavLink>
+            </li>
+            <li>
+              <Button>Upcomming Sessions</Button>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </>
   );
 };
 
